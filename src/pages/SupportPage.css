@@ -1,0 +1,243 @@
+/* SupportPage.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+.support-page {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  font-family: 'Inter', sans-serif;
+}
+
+.support-content {
+  flex-grow: 1;
+  padding: 2rem;
+ /* Match sidebar width */
+}
+
+.support-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.support-header h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: #2d3436;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.logout-btn {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logout-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Support Form Styles */
+.support-form-card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  margin-bottom: 3rem;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(5px);
+}
+
+.form-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #2d3436;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: #636e72;
+  margin-bottom: 0.5rem;
+}
+
+.form-textarea {
+  border-radius: 8px;
+  border: 1px solid #dfe6e9;
+  padding: 12px 15px;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.form-textarea:focus {
+  border-color: #6c5ce7;
+  box-shadow: 0 0 0 0.2rem rgba(108,92,231,0.2);
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(108,92,231,0.3);
+}
+
+.alert-message {
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Resources Section */
+.resources-section {
+  margin-top: 3rem;
+}
+
+.section-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: #2d3436;
+  font-size: 1.75rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  font-family: 'Inter', sans-serif;
+  color: #636e72;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+/* Blog Cards */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.blog-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.blog-card {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: white;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.blog-image-container {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+
+.blog-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.blog-card:hover .blog-image {
+  transform: scale(1.05);
+}
+
+.blog-category {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(108,92,231,0.9);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.blog-body {
+  padding: 1.5rem;
+  flex-grow: 1;
+}
+
+.blog-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #2d3436;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.blog-excerpt {
+  font-family: 'Inter', sans-serif;
+  color: #636e72;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.blog-footer {
+  background: transparent;
+  border-top: 1px solid #f1f1f1;
+  padding: 0.75rem 1.5rem;
+}
+
+.blog-date {
+  font-family: 'Inter', sans-serif;
+  color: #b2bec3;
+  font-size: 0.85rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .support-content {
+    margin-left: 0;
+    padding: 1.5rem;
+  }
+  
+  .blog-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .support-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+}

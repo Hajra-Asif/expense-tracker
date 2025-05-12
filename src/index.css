@@ -1,0 +1,161 @@
+/* index.css */
+.bg-dark::placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+  
+  .bg-dark:-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+  
+  .bg-dark::-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+
+  .full-height-container {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .background-image {
+    height: 100vh;
+    width: 100%;
+    object-fit: cover;
+    filter: brightness(0.6);
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  .overlay-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 3rem;
+    background: linear-gradient(
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.7)
+    );
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+  }
+  
+  .tagline {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #a0f1e0;
+  }
+  
+  .intro-text {
+    max-width: 480px;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+  
+  .glowing-icon {
+    color: #00f7ff;
+    animation: glow 1.5s infinite alternate;
+  }
+  
+  .glowing-icon-small {
+    color: #9fffe7;
+    animation: glowSmall 2s infinite alternate;
+  }
+  
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff;
+    }
+    to {
+      text-shadow: 0 0 20px #00f7ff, 0 0 30px #00f7ff;
+    }
+  }
+  
+  @keyframes glowSmall {
+    from {
+      text-shadow: 0 0 5px #a0f1e0;
+    }
+    to {
+      text-shadow: 0 0 10px #a0f1e0;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(1.05);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+@keyframes textPop {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.text-light{
+    animation:textPop 0.5s ease-in-out;
+}
+
+.welcome-panel img {
+    transition: transform 1s ease-in-out;
+  }
+  
+  .welcome-panel:hover img {
+    transform: scale(1.02);
+  }
+  
+  .overlay-content {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    animation: fadeIn 1s ease;
+    border-radius: 12px;
+  }
+  
+  .feature-icon {
+    transition: transform 0.3s;
+  }
+  .feature-icon:hover {
+    transform: scale(1.1);
+    color: #00f2fe;
+  }
+  
+  .animate-icon {
+    animation: popUp 1s ease;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes popUp {
+    from {
+      transform: scale(0.8);
+      opacity: 0.5;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  

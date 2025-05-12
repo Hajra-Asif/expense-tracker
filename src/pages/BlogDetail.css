@@ -1,0 +1,47 @@
+/* Add these styles to your BlogDetail.css */
+/* Add this to your main CSS file or in a style tag */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
+.blog-header {
+  transition: all 0.3s ease;
+}
+
+.blog-header:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(31, 38, 135, 0.15) !important;
+}
+
+.logout-btn:hover {
+  background: #ff6b6b !important;
+  color: white !important;
+  transform: translateY(-2px);
+}
+
+.back-btn:hover {
+  color: white !important;
+}
+
+.back-btn:hover span:last-child {
+  transform: translateY(0) !important;
+}
+
+.blog-content strong {
+  color: #6c5ce7;
+  font-weight: 600;
+}
+
+.blog-content p.lead {
+  position: relative;
+  padding-left: 20px;
+}
+
+.blog-content p.lead::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: linear-gradient(to bottom, #6c5ce7, #a29bfe);
+  border-radius: 2px;
+}
+
