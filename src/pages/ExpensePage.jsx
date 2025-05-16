@@ -133,7 +133,7 @@ function ExpensePage() {
                       onChange={(e) => setAmount(e.target.value)}
                       required
                     />
-                    <label htmlFor="amountInput">Amount (Rs.)</label>
+                    <label htmlFor="amountInput" className="text-light">Amount (Rs.)</label>
                   </div>
                 </div>
                 <div className="col-md-3">
@@ -166,7 +166,7 @@ function ExpensePage() {
                       required
                       disabled={!category}
                     >
-                      <option value="">Select Subcategory</option>
+                      <option value="" className="text-dark">Select Subcategory</option>
                       {category &&
                         expenseCategories[category]?.map((sub) => (
                           <option key={sub} value={sub}>{sub}</option>
@@ -264,7 +264,7 @@ function ExpensePage() {
               <div className="row g-4">
                 <div className="col-lg-6">
                   <div className="chart-container">
-                    <h5 className="text-center mb-3">Expense Distribution</h5>
+                    <h5 className="text-center mb-3 text-light">Expense Distribution</h5>
                     <div style={{ height: "300px" }}>
                       <ExpenseChart expenses={expenses} />
                     </div>
@@ -272,7 +272,7 @@ function ExpensePage() {
                 </div>
                 <div className="col-lg-6">
                   <div className="chart-container">
-                    <h5 className="text-center mb-3">Expense Trends</h5>
+                    <h5 className="text-center mb-3 text-light">Expense Trends</h5>
                     <div style={{ height: "300px" }}>
                       <ExpenseBarChart data={expenses} />
                     </div>

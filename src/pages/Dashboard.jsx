@@ -12,7 +12,6 @@ import {
 import ExpenseChart from "../components/ExpenseChart";
 import IncomeChart from "../components/IncomeChart";
 import Sidebar from "../components/Sidebar";
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet"></link>
 import CombinedChart from "../components/CombinedChart";
 
 function Dashboard() {
@@ -73,14 +72,14 @@ function Dashboard() {
 
   if (income.length === 0 && expenses.length === 0) {
     return (
-      <div className="d-flex" style={{ minHeight: '100vh', backgroundColor: '#f8f9fa' }}>
+      <div className="d-flex" style={{ minHeight: '100vh', backgroundColor: '#111', color: '#fff', fontFamily: "'Inter', sans-serif" }}>
         <Sidebar />
-        <div className="container-fluid p-5" style={{ fontFamily: "'Inter', sans-serif" }}>
+        <div className="container-fluid p-5">
           <div className="d-flex justify-content-between align-items-center mb-4">
             <h3 style={{ 
               fontFamily: "'Poppins', sans-serif",
               fontWeight: 600,
-              color: '#2d3436'
+              color: '#4CD964'
             }}>Dashboard Overview</h3>
             <button 
               className="btn btn-outline-danger" 
@@ -89,18 +88,23 @@ function Dashboard() {
                 fontFamily: "'Inter', sans-serif",
                 fontWeight: 500,
                 borderRadius: '8px',
-                padding: '8px 16px'
+                padding: '8px 16px',
+                backgroundColor: 'transparent',
+                border: '1px solid #ff3b30',
+                color: '#fff'
               }}>
               Logout
             </button>
           </div>
-          <div className="alert alert-warning" style={{
+          <div className="alert" style={{
             borderRadius: '12px',
-            borderLeft: '4px solid #f39c12',
+            borderLeft: '4px solid #4CD964',
             fontFamily: "'Inter', sans-serif",
-            boxShadow: '0 2px 10px rgba(0,0,0,0.05)'
+            backgroundColor: '#222',
+            color: '#ccc',
+            boxShadow: '0 2px 10px rgba(0,0,0,0.2)'
           }}>
-            <strong>No data available</strong> - Start adding your income and expenses to visualize your financial patterns.
+            <strong style={{ color: '#fff' }}>No data available</strong> - Start adding your income and expenses to visualize your financial patterns.
           </div>
         </div>
       </div>
@@ -118,38 +122,42 @@ function Dashboard() {
   const status = net >= 0 ? "Gain" : "Loss";
 
   return (
-    <div className="d-flex" style={{ minHeight: '100vh', backgroundColor: '#f8f9fa' }}>
+    <div className="d-flex" style={{ minHeight: '100vh', backgroundColor: '#111', color: '#fff', fontFamily: "'Inter', sans-serif" }}>
       <Sidebar />
-      <div className="container-fluid p-5" style={{ fontFamily: "'Inter', sans-serif" }}>
+      <div className="container-fluid p-5">
         {/* Header */}
         <div className="d-flex justify-content-between align-items-center mb-4">
           <h3 style={{ 
             fontFamily: "'Poppins', sans-serif",
             fontWeight: 600,
-            color: '#2d3436'
+            color: '#4CD964'
           }}>Dashboard Overview</h3>
           <button 
-            className="btn btn-outline-danger" 
+            className="btn" 
             onClick={handleLogout}
             style={{
               fontFamily: "'Inter', sans-serif",
               fontWeight: 500,
               borderRadius: '8px',
-              padding: '8px 16px'
+              padding: '8px 16px',
+              backgroundColor: 'transparent',
+              border: '1px solid #ff3b30',
+              color: '#fff'
             }}>
             Logout
           </button>
         </div>
 
         {/* Welcome Message */}
-        <div className="alert alert-success mt-3 mb-4" style={{
+        <div className="alert mt-3 mb-4" style={{
           borderRadius: '12px',
-          borderLeft: '4px solid #00b894',
+          borderLeft: '4px solid #4CD964',
           fontFamily: "'Inter', sans-serif",
-          boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
-          backgroundColor: '#f8fff8'
+          backgroundColor: '#222',
+          color: '#ccc',
+          boxShadow: '0 2px 10px rgba(0,0,0,0.2)'
         }}>
-          👋 Welcome, <strong>{userName}</strong>! Hope you're having a financially amazing day! 💚
+          👋 Welcome, <strong style={{ color: '#fff' }}>{userName}</strong>! Hope you're having a financially amazing day! 💚
         </div>
 
         {/* Financial Summary Cards */}
@@ -158,11 +166,13 @@ function Dashboard() {
             <div className="card h-100" style={{
               borderRadius: '12px',
               border: 'none',
-              boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
+              boxShadow: '0 4px 6px rgba(0,0,0,0.3)',
+              backgroundColor: '#222',
+              color: '#fff'
             }}>
               <div className="card-body">
-                <h5 className="card-title" style={{ color: '#636e72' }}>Total Income</h5>
-                <h2 className="text-success">${totalIncome.toFixed(2)}</h2>
+                <h5 className="card-title" style={{ color: '#aaa' }}>Total Income</h5>
+                <h2 style={{ color: '#4CD964' }}>${totalIncome.toFixed(2)}</h2>
               </div>
             </div>
           </div>
@@ -170,11 +180,13 @@ function Dashboard() {
             <div className="card h-100" style={{
               borderRadius: '12px',
               border: 'none',
-              boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
+              boxShadow: '0 4px 6px rgba(0,0,0,0.3)',
+              backgroundColor: '#222',
+              color: '#fff'
             }}>
               <div className="card-body">
-                <h5 className="card-title" style={{ color: '#636e72' }}>Total Expenses</h5>
-                <h2 className="text-danger">${totalExpenses.toFixed(2)}</h2>
+                <h5 className="card-title" style={{ color: '#aaa' }}>Total Expenses</h5>
+                <h2 style={{ color: '#ff3b30' }}>${totalExpenses.toFixed(2)}</h2>
               </div>
             </div>
           </div>
@@ -182,13 +194,14 @@ function Dashboard() {
             <div className="card h-100" style={{
               borderRadius: '12px',
               border: 'none',
-              boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
-              backgroundColor: status === 'Gain' ? 'rgba(0, 184, 148, 0.1)' : 'rgba(214, 48, 49, 0.1)'
+              boxShadow: '0 4px 6px rgba(0,0,0,0.3)',
+              backgroundColor: status === 'Gain' ? 'rgba(76, 217, 100, 0.2)' : 'rgba(255, 59, 48, 0.2)',
+              color: '#fff'
             }}>
               <div className="card-body">
-                <h5 className="card-title" style={{ color: '#636e72' }}>Net {status}</h5>
-                <h2 className={status === 'Gain' ? 'text-success' : 'text-danger'}>
-                  {status === 'Gain' ? `+$${net.toFixed(2)}` : `-$${Math.abs(net.toFixed(2))}`}
+                <h5 className="card-title" style={{ color: '#aaa' }}>Net {status}</h5>
+                <h2 style={{ color: status === 'Gain' ? '#4CD964' : '#ff3b30' }}>
+                  {status === 'Gain' ? `+$${net.toFixed(2)}` : `-$${Math.abs(net).toFixed(2)}`}
                 </h2>
               </div>
             </div>
@@ -199,10 +212,12 @@ function Dashboard() {
         <div className="card mb-4" style={{
           borderRadius: '12px',
           border: 'none',
-          boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
+          boxShadow: '0 4px 6px rgba(0,0,0,0.3)',
+          backgroundColor: '#222',
+          color: '#fff'
         }}>
           <div className="card-body">
-            <h5 className="card-title mb-4" style={{ color: '#2d3436' }}>Income vs Expenses</h5>
+            <h5 className="card-title mb-4" style={{ color: '#4CD964' }}>Income vs Expenses</h5>
             <CombinedChart data={combinedData} />
           </div>
         </div>
@@ -213,10 +228,12 @@ function Dashboard() {
             <div className="card h-100" style={{
               borderRadius: '12px',
               border: 'none',
-              boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
+              boxShadow: '0 4px 6px rgba(0,0,0,0.3)',
+              backgroundColor: '#222',
+              color: '#fff'
             }}>
               <div className="card-body">
-                <h5 className="card-title mb-4" style={{ color: '#2d3436' }}>Income Breakdown</h5>
+                <h5 className="card-title mb-4" style={{ color: '#4CD964' }}>Income Breakdown</h5>
                 <IncomeChart data={income} />
               </div>
             </div>
@@ -225,10 +242,12 @@ function Dashboard() {
             <div className="card h-100" style={{
               borderRadius: '12px',
               border: 'none',
-              boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
+              boxShadow: '0 4px 6px rgba(0,0,0,0.3)',
+              backgroundColor: '#222',
+              color: '#fff'
             }}>
               <div className="card-body">
-                <h5 className="card-title mb-4" style={{ color: '#2d3436' }}>Expense Breakdown</h5>
+                <h5 className="card-title mb-4" style={{ color: '#4CD964' }}>Expense Breakdown</h5>
                 <ExpenseChart expenses={expenses} />
               </div>
             </div>

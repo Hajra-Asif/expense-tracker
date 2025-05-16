@@ -90,23 +90,29 @@ const SupportPage = () => {
   };
 
   return (
-    <div className="support-page">
+    <div className="support-page" style={{ backgroundColor: '#111', color: '#fff' }}>
       <Sidebar />
-      <div className="support-content">
+      <div className="support-content" style={{backgroundColor : "#101010"}}>
         <div className="support-header">
-          <h2>Support Center</h2>
-          <button className="logout-btn" onClick={handleLogout}>
+          <h2 style={{ color: '#4CD964' }}>Support Center</h2>
+          <button className="logout-btn" onClick={handleLogout} style={{ 
+            backgroundColor: 'transparent', 
+            border: '1px solid #ff3b30', 
+            color: '#fff',
+            borderRadius: '5px',
+            padding: '8px 16px'
+          }}>
             Logout
           </button>
         </div>
 
         {/* Support Message Form */}
-        <Card className="support-form-card">
+        <Card className="support-form-card" style={{ backgroundColor: '#222', color: '#fff', border: '1px solid #333' }}>
           <Card.Body>
-            <Card.Title className="form-title">How Can We Help You?</Card.Title>
+            <Card.Title className="form-title" style={{ color: '#4CD964' }}>How Can We Help You?</Card.Title>
             <Form onSubmit={handleSupportSubmit}>
               <Form.Group controlId="supportMessage" className="mb-4">
-                <Form.Label className="form-label">Your Message</Form.Label>
+                <Form.Label className="form-label" style={{ color: '#ccc' }}>Your Message</Form.Label>
                 <Form.Control
                   as="textarea"
                   rows={4}
@@ -114,20 +120,25 @@ const SupportPage = () => {
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Describe your issue or question..."
                   className="form-textarea"
+                  style={{ backgroundColor: '#333', color: '#fff', border: '1px solid #444' }}
                   required
                 />
               </Form.Group>
-              <Button variant="primary" type="submit" className="submit-btn">
+              <Button variant="primary" type="submit" className="submit-btn" style={{ 
+                backgroundColor: '#4CD964', 
+                borderColor: '#4CD964',
+                color: '#000'
+              }}>
                 Send Message
               </Button>
             </Form>
             {status === 'success' && (
-              <Alert variant="success" className="mt-3 alert-message">
+              <Alert variant="success" className="mt-3 alert-message" style={{ backgroundColor: '#4CD964', color: '#000' }}>
                 Message sent successfully! We'll get back to you soon.
               </Alert>
             )}
             {status === 'error' && (
-              <Alert variant="danger" className="mt-3 alert-message">
+              <Alert variant="danger" className="mt-3 alert-message" style={{ backgroundColor: '#ff3b30', color: '#fff' }}>
                 Something went wrong. Please try again.
               </Alert>
             )}
@@ -136,23 +147,23 @@ const SupportPage = () => {
 
         {/* Financial Resources Section */}
         <div className="resources-section">
-          <h3 className="section-title">Financial Resources</h3>
-          <p className="section-subtitle">Expert advice to improve your financial health</p>
+          <h3 className="section-title" style={{ color: '#4CD964' }}>Financial Resources</h3>
+          <p className="section-subtitle" style={{ color: '#aaa' }}>Expert advice to improve your financial health</p>
           
           <div className="blog-grid">
             {blogs.map((blog) => (
-              <Link to={`/blog/${blog.id}`} key={blog.id} className="blog-card-link">
-                <Card className="blog-card">
+              <Link to={`/blog/${blog.id}`} key={blog.id} className="blog-card-link" style={{ textDecoration: 'none' }}>
+                <Card className="blog-card" style={{ backgroundColor: '#222', border: '1px solid #333', color: '#fff' }}>
                   <div className="blog-image-container">
                     <Card.Img variant="top" src={blog.image} className="blog-image" />
-                    <span className="blog-category">{blog.category}</span>
+                    <span className="blog-category" style={{ backgroundColor: '#4CD964', color: '#000' }}>{blog.category}</span>
                   </div>
                   <Card.Body className="blog-body">
-                    <Card.Title className="blog-title">{blog.title}</Card.Title>
-                    <Card.Text className="blog-excerpt">{blog.excerpt}</Card.Text>
+                    <Card.Title className="blog-title" style={{ color: '#4CD964' }}>{blog.title}</Card.Title>
+                    <Card.Text className="blog-excerpt" style={{ color: '#ccc' }}>{blog.excerpt}</Card.Text>
                   </Card.Body>
-                  <Card.Footer className="blog-footer">
-                    <small className="blog-date">{blog.date}</small>
+                  <Card.Footer className="blog-footer" style={{ backgroundColor: '#333', borderTop: '1px solid #444' }}>
+                    <small className="blog-date" style={{ color: '#999' }}>{blog.date}</small>
                   </Card.Footer>
                 </Card>
               </Link>

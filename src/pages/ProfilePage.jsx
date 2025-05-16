@@ -106,106 +106,125 @@ const ProfilePage = () => {
   };
 
   return (
-    <div className="profile-container">
-  <Sidebar />
-  <Container className="my-5">
-    <Card className="profile-card">
-      <Card.Body>
-        <h2 className="profile-header">User Profile</h2>
+    <div className="profile-container" style={{ backgroundColor: '#111', color: '#fff' }}>
+      <Sidebar />
+      <Container className="my-5">
+        <Card className="profile-card" style={{ backgroundColor: '#222', border: '1px solid #333', color: '#fff' }}>
+          <Card.Body>
+            <h2 className="profile-header" style={{ color: '#4CD964' }}>User Profile</h2>
 
-        <div className="profile-img-container">
-          <Image
-            src={profileImage || DEFAULT_PROFILE_IMAGE}
-            alt="Profile"
-            roundedCircle
-            width={120}
-            height={120}
-            className="profile-img"
-            style={{ objectFit: 'cover' }}
-          />
-          {editMode && (
-            <Form.Group controlId="formFile" className="mt-2">
-              <Form.Label>Update Profile Image</Form.Label>
-              <Form.Control
-                type="file"
-                accept="image/*"
-                onChange={handleImageChange}
+            <div className="profile-img-container">
+              <Image
+                src={profileImage || DEFAULT_PROFILE_IMAGE}
+                alt="Profile"
+                roundedCircle
+                width={120}
+                height={120}
+                className="profile-img"
+                style={{ objectFit: 'cover', border: '3px solid #4CD964' }}
               />
-            </Form.Group>
-          )}
-        </div>
+              {editMode && (
+                <Form.Group controlId="formFile" className="mt-2">
+                  <Form.Label style={{ color: '#ccc' }}>Update Profile Image</Form.Label>
+                  <Form.Control
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageChange}
+                    style={{ backgroundColor: '#333', color: '#fff', border: '1px solid #444' }}
+                  />
+                </Form.Group>
+              )}
+            </div>
 
-        <p><strong>Email:</strong> {user?.email}</p>
+            <p style={{ color: '#ccc' }}><strong style={{ color: '#fff' }}>Email:</strong> {user?.email}</p>
 
-        {editMode ? (
-          <>
-            <Form.Group className="mb-3">
-              <Form.Label>Full Name</Form.Label>
-              <Form.Control
-                type="text"
-                name="fullName"
-                value={formData.fullName}
-                onChange={handleInputChange}
-                placeholder="Enter your full name"
-              />
-            </Form.Group>
+            {editMode ? (
+              <>
+                <Form.Group className="mb-3">
+                  <Form.Label style={{ color: '#ccc' }}>Full Name</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="fullName"
+                    value={formData.fullName}
+                    onChange={handleInputChange}
+                    placeholder="Enter your full name"
+                    style={{ backgroundColor: '#333', color: '#fff', border: '1px solid #444' }}
+                  />
+                </Form.Group>
 
-            <Form.Group className="mb-3">
-              <Form.Label>Bio</Form.Label>
-              <Form.Control
-                as="textarea"
-                name="bio"
-                value={formData.bio}
-                onChange={handleInputChange}
-                placeholder="Tell us about yourself..."
-                rows={3}
-              />
-              <Form.Text className="text-muted">
-                Max 200 characters
-              </Form.Text>
-            </Form.Group>
-          </>
-        ) : (
-          <>
-            <p><strong>Full Name:</strong> {userData?.fullName || "Not set"}</p>
-            <p><strong>Bio:</strong> {userData?.bio || "No bio yet"}</p>
-          </>
-        )}
+                <Form.Group className="mb-3">
+                  <Form.Label style={{ color: '#ccc' }}>Bio</Form.Label>
+                  <Form.Control
+                    as="textarea"
+                    name="bio"
+                    value={formData.bio}
+                    onChange={handleInputChange}
+                    placeholder="Tell us about yourself..."
+                    rows={3}
+                    style={{ backgroundColor: '#333', color: '#fff', border: '1px solid #444' }}
+                  />
+                  <Form.Text style={{ color: '#999' }}>
+                    Max 200 characters
+                  </Form.Text>
+                </Form.Group>
+              </>
+            ) : (
+              <>
+                <p style={{ color: '#ccc' }}><strong style={{ color: '#fff' }}>Full Name:</strong> {userData?.fullName || "Not set"}</p>
+                <p style={{ color: '#ccc' }}><strong style={{ color: '#fff' }}>Bio:</strong> {userData?.bio || "No bio yet"}</p>
+              </>
+            )}
 
-        <p>
-          <strong>Member Since:</strong>{" "}
-          {user?.metadata?.creationTime
-            ? new Date(user.metadata.creationTime).toLocaleDateString()
-            : "N/A"}
-        </p>
+            <p style={{ color: '#ccc' }}>
+              <strong style={{ color: '#fff' }}>Member Since:</strong>{" "}
+              {user?.metadata?.creationTime
+                ? new Date(user.metadata.creationTime).toLocaleDateString()
+                : "N/A"}
+            </p>
 
-        {error && <p className="text-danger">{error}</p>}
+            {error && <p style={{ color: '#ff3b30' }}>{error}</p>}
 
-        {editMode ? (
-          <>
-            <Button variant="success" onClick={handleUpdate} disabled={updating}>
-              {updating ? "Updating..." : "Save Changes"}
-            </Button>{" "}
-            <Button variant="secondary" onClick={() => setEditMode(false)}>
-              Cancel
-            </Button>
-          </>
-        ) : (
-          <Button variant="outline-primary" onClick={() => setEditMode(true)}>
-            Edit Profile
-          </Button>
-        )}
+            {editMode ? (
+              <>
+                <Button 
+                  variant="success" 
+                  onClick={handleUpdate} 
+                  disabled={updating}
+                  style={{ backgroundColor: '#4CD964', borderColor: '#4CD964', color: '#000' }}
+                >
+                  {updating ? "Updating..." : "Save Changes"}
+                </Button>{" "}
+                <Button 
+                  variant="secondary" 
+                  onClick={() => setEditMode(false)}
+                  style={{ backgroundColor: '#444', borderColor: '#444', color: '#fff' }}
+                >
+                  Cancel
+                </Button>
+              </>
+            ) : (
+              <Button 
+                variant="outline-primary" 
+                onClick={() => setEditMode(true)}
+                style={{ borderColor: '#4CD964', color: '#4CD964' }}
+              >
+                Edit Profile
+              </Button>
+            )}
 
-        <div className="d-flex justify-content-end mt-4">
-          <Button variant="outline-danger" onClick={handleLogout}>
-            Logout
-          </Button>
-        </div>
-      </Card.Body>
-    </Card>
-  </Container>
-</div>
-
+            <div className="d-flex justify-content-end mt-4">
+              <Button 
+                variant="outline-danger" 
+                onClick={handleLogout}
+                style={{ borderColor: '#ff3b30', color: '#ff3b30' }}
+              >
+                Logout
+              </Button>
+            </div>
+          </Card.Body>
+        </Card>
+      </Container>
+    </div>
   );
 };
 

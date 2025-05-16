@@ -1,8 +1,25 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
-import { Chart as ChartJS, CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend } from "chart.js";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  LineElement,
+  PointElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
 
-ChartJS.register(CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  LineElement,
+  PointElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 const CombinedChart = ({ data }) => {
   // Process data for the combined chart
@@ -14,14 +31,23 @@ const CombinedChart = ({ data }) => {
         data: data.filter((item) => item.type === "Income").map((item) => item.amount),
         fill: false,
         borderColor: "green",
-        tension: 0.1,
+        backgroundColor: "green",
+        tension: 0.4, // More curvature
+        pointRadius: 6,
+        pointStyle: 'triangle',
+        borderWidth: 3,
       },
       {
         label: "Expense",
         data: data.filter((item) => item.type === "Expense").map((item) => item.amount),
         fill: false,
         borderColor: "red",
-        tension: 0.1,
+        backgroundColor: "red",
+        tension: 0.4,
+        pointRadius: 6,
+        pointStyle: 'rectRot', // rotated rectangle
+        borderWidth: 3,
+        borderDash: [5, 5], // Dashed line
       },
     ],
   };
